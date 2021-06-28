@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>과제 2</title>
+<script src='../lib/jquery-3.1.1.min.js' type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		var test = $('.test');
+		var ptest = $('.ptest');
+		
+		test.click(function(){
+			alert('this와 같은 경우는 ' + this + ' 와 같은 태그 요소가 출력')
+			
+		});
+		ptest.click(function(){
+			alert('$(this)와 같은 경우는 ' + $(this) + ' 와 같이 오브젝트 요소로 출력')	
+		})
+	})
+</script>
+</head>
+<body>
+	<div>
+		<input type='button' class='test' value='this'>
+		<input type='button' class='ptest' value='$(this)'>
+	</div>
+	<br>
+	<hr>
+	<br>
+	<h2>결론</h2>
+	<h3>this는 $(this)와 다르며, this는 태그 요소만을 가지고 있는 반면에 $(this)와 같은 경우는 오브젝트로서
+	해당 객체가 가지고있는 요소를 가지고 있음을 알 수 있다. 기본적으로 해당 객체의 첫번째([0]) 요소로 태그요소를 가지고있다.
+	따리서 this=$(this)[0] 이다. </h3>
+</body>
+</html>

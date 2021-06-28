@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>과제 1</title>
+<script src='../lib/jquery-3.1.1.min.js' type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+		 	var i = 0;
+		    $("div.overout").mouseover(function(){
+		      $("p:first",this).text("mouse over");
+		      $("p:last",this).text(++i);
+		    }).mouseout(function(){
+		      $("p:first",this).text("mouse out");
+		    });
+		    var n = 0;
+		    $("div.enterleave").mouseenter(function(){
+		      $("p:first",this).text("mouse enter");
+		      $("p:last",this).text(++n);
+		    }).mouseleave(function(){
+		      $("p:first",this).text("mouse leave");
+		    });
+	})
+</script>
+</head>
+<body>
+<h2>mouseover & mouseout [버블링]</h2>
+<p> 아래와 같이 자식클래스의 이벤트가 발생할 경우 부모클래스의 이벤트도 덩달아 발생합니다.</p>
+<h4>이를 Bubbling(버블링) 이라고 하는데, 버블링은 이벤트가 상위 요소로 전파되는 것을 의미합니다.</h4>
+<br>
+<h2>mouseenger & mouseleave</h2>
+<p> 오버, 아웃과 달리 버블링이 일어나지 않는 것을 볼 수 있습니다. </p>
+<br>
+<hr>
+<br>
+<div>
+	<div class="overout"
+		style="width: 40%; height: 300px; margin: 0 15px; background-color: #D6EDFC; float: left;">
+		<p>mouse-Over 부모</p>
+		<div class="overout"
+			style="width: 50%; height: 50%; background-color: #FFCC00; margin: 10px auto;">
+			<p>mouse-Over 자식</p>
+			<p>0</p>
+		</div>
+		<p>0</p>
+	</div>
+	<div class="enterleave"
+		style="width: 40%; height: 300px; margin: 0 15px; background-color: #D6EDFC; float: left;">
+		<p>mouse-Enter 부모</p>
+		<div class="enterleave"
+			style="width: 50%; height: 50%; background-color: #FFCC00; margin: 10px auto;">
+			<p>Mouse-Enter 자식</p>
+			<p>0</p>
+		</div>
+		<p>0</p>
+	</div>
+</div>
+</body>
+</html>
